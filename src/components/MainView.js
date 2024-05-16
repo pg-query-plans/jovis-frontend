@@ -121,7 +121,6 @@ export default function MainView() {
                         .map((opt, index) => (
                             <GeqoMain key={index} data={opt} plan={queryRes.result[0][0][0].Plan} />
                         ))}
-                    >>>>>>> 60ec839... clean code
                 </div>
             ) : null}
         </div>
