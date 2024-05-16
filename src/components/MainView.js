@@ -83,7 +83,6 @@ export default function MainView() {
           height="20vh"
           defaultLanguage="sql"
           defaultValue="/* Type your query here */"
-          // theme="vs-dark"
           onMount={handleEditorDidMount}
           options={{
             minimap: { enabled: false },
@@ -121,6 +120,7 @@ export default function MainView() {
       </div>
       {queryRes.optimizer ? (
         <div>
+<<<<<<< HEAD
           {queryRes.optimizer.dp.length > 0 && <DpMain data={queryRes} />}
           {Object.keys(queryRes.optimizer.geqo).length > 0 && (
             <GeqoMain data={queryRes} />
@@ -128,6 +128,26 @@ export default function MainView() {
           {queryRes.optimizer.dp.length === 0 &&
             Object.keys(queryRes.optimizer.geqo).length === 0 &&
             queryRes.optimizer.base.length > 0 && <DpMain data={queryRes} />}
+=======
+          {queryRes.optimizer
+            .filter((opt) => opt.type === "dp")
+            .map((opt, index) => (
+              <DpMain
+                key={index}
+                data={opt}
+                plan={queryRes.result[0][0][0].Plan}
+              />
+            ))}
+          {queryRes.optimizer
+            .filter((opt) => opt.type === "geqo")
+            .map((opt, index) => (
+              <GeqoMain
+                key={index}
+                data={opt}
+                plan={queryRes.result[0][0][0].Plan}
+              />
+            ))}
+>>>>>>> 60ec839... clean code
         </div>
       ) : null}
     </div>

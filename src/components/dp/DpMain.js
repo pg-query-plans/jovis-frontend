@@ -8,6 +8,7 @@ import JoinOrderCard from "./JoinOrderCard";
 import "../../assets/stylesheets/Dp.css";
 
 const DpMain = ({ data, plan }) => {
+<<<<<<< HEAD
     const {
         showJoinCard,
         setShowJoinCard,
@@ -22,6 +23,21 @@ const DpMain = ({ data, plan }) => {
         selectedMetric,
         setSelectedMetric,
     } = useContext(DpContext);
+=======
+  const {
+    showJoinCard,
+    setShowJoinCard,
+    node,
+    setNode,
+    joinOrder,
+    setJoinOrder,
+    startupCost,
+    setStartupCost,
+    totalCost,
+    setTotalCost,
+    setSelectedMetric,
+  } = useContext(DpContext);
+>>>>>>> 60ec839... clean code
 
     const viewRef = useRef(null);
     const [viewSize, setViewSize] = useState([0, 0]);
